@@ -11,7 +11,7 @@ const agents = [
     "Harbor",
     "Iso",
     "Jett",
-    "KAYO",
+    "Kayo",
     "Killjoy",
     "Miks",
     "Neon",
