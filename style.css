@@ -1,0 +1,324 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+
+    background: #000;
+    color: white;
+
+    font-family: Arial, Helvetica, sans-serif;
+
+    min-height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    overflow: hidden;
+}
+
+.page {
+    width: 100%;
+    max-width: 1200px;
+
+    text-align: center;
+}
+
+/* TITLE */
+
+h1 {
+    margin: 0;
+
+    font-size: 55px;
+    font-weight: 900;
+
+    letter-spacing: 8px;
+}
+
+h2 {
+    margin-top: 5px;
+    margin-bottom: 35px;
+
+    font-size: 22px;
+
+    letter-spacing: 5px;
+
+    color: #ff4655;
+}
+
+/* ROULETTE */
+
+.roulette-container {
+
+    position: relative;
+
+    width: 100%;
+    height: 210px;
+
+    overflow: hidden;
+
+    background: #080808;
+
+    border-top: 1px solid #222;
+    border-bottom: 1px solid #222;
+}
+
+/*
+    The row of agents
+*/
+
+.roulette {
+
+    position: absolute;
+
+    left: 0;
+    top: 20px;
+
+    height: 170px;
+
+    display: flex;
+
+    gap: 8px;
+
+    transform: translateX(0);
+
+    will-change: transform;
+}
+
+/* AGENT CARD */
+
+.agent-card {
+
+    width: 115px;
+    height: 170px;
+
+    flex-shrink: 0;
+
+    position: relative;
+
+    overflow: hidden;
+
+    background: #111;
+
+    border: 2px solid #292929;
+
+    transition: border 0.2s;
+}
+
+/* IMAGE */
+
+.agent-card img {
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    display: block;
+}
+
+/* DARK GRADIENT */
+
+.agent-card::after {
+
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    height: 60%;
+
+    background: linear-gradient(
+        transparent,
+        rgba(0, 0, 0, 0.95)
+    );
+}
+
+/* NAME */
+
+.agent-name {
+
+    position: absolute;
+
+    left: 7px;
+    bottom: 7px;
+
+    z-index: 2;
+
+    font-size: 11px;
+
+    font-weight: bold;
+
+    text-transform: uppercase;
+
+    letter-spacing: 0.5px;
+}
+
+/* CENTER LINE */
+
+.indicator {
+
+    position: absolute;
+
+    z-index: 20;
+
+    top: 0;
+    bottom: 0;
+
+    left: 50%;
+
+    width: 3px;
+
+    transform: translateX(-50%);
+
+    background: #ff4655;
+
+    box-shadow:
+        0 0 8px #ff4655,
+        0 0 15px #ff4655;
+}
+
+/* TRIANGLE */
+
+.indicator::before {
+
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    width: 0;
+    height: 0;
+
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+
+    border-top: 14px solid #ff4655;
+}
+
+/* RESULT */
+
+.result {
+
+    margin-top: 30px;
+}
+
+.result p {
+
+    margin: 0;
+
+    font-size: 12px;
+
+    letter-spacing: 4px;
+
+    color: #777;
+}
+
+.result h3 {
+
+    margin: 8px 0 25px;
+
+    font-size: 35px;
+
+    letter-spacing: 3px;
+
+    color: #ff4655;
+}
+
+/* BUTTON */
+
+button {
+
+    padding: 14px 55px;
+
+    border: none;
+
+    background: #ff4655;
+
+    color: white;
+
+    font-size: 18px;
+
+    font-weight: bold;
+
+    letter-spacing: 3px;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+button:hover {
+
+    background: white;
+
+    color: black;
+
+    transform: scale(1.05);
+}
+
+button:active {
+
+    transform: scale(0.97);
+}
+
+button:disabled {
+
+    background: #444;
+
+    color: #888;
+
+    cursor: not-allowed;
+
+    transform: none;
+}
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+
+    h1 {
+        font-size: 38px;
+    }
+
+    h2 {
+        font-size: 16px;
+    }
+
+    .agent-card {
+
+        width: 85px;
+        height: 145px;
+    }
+
+    .roulette {
+
+        height: 145px;
+    }
+
+    .roulette-container {
+
+        height: 185px;
+    }
+
+    .agent-name {
+
+        font-size: 9px;
+    }
+
+    button {
+
+        padding: 13px 40px;
+    }
+}
